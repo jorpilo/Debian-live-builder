@@ -2,8 +2,8 @@
 # @Author: Jorge Pinilla López
 # @Date:   06-03-2018 10:05
 # @Filename: config.sh
-# @Last modified by:   Jorge Pinilla López
-# @Last modified time: 06-03-2018 10:53
+# @Last modified by:   jorpilo
+# @Last modified time: 06-03-2018 16:27
 if [ -d "built" ]; then
   echo "Warning: Cleaning built folder"
   rm -rf "built"
@@ -21,6 +21,7 @@ Desktop=""
 lb config --binary-images iso-hybrid\
 --mirror-bootstrap $Mirror --mirror-binary $Mirror\
 --debian-installer live \
+--debootstrap-options "--include=apt-transport-https" \
 --bootappend-live 'boot=live components username='"$UserName"'locales='"$Locales"'keyboard-layouts='"$Keyboard"'live-config.login live-config.user-default-groups='"$Groups"
 
 # Faltan desktops
