@@ -4,3 +4,5 @@
 - live-build
 - live-boot
 - live-config
+- wget
+- dialog/kdialog...

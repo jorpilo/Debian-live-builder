@@ -3,7 +3,18 @@
 # @Date:   06-03-2018 10:05
 # @Filename: config.sh
 # @Last modified by:   jorpilo
-# @Last modified time: 06-03-2018 16:27
+# @Last modified time: 07-03-2018 13:17
+
+# Check if we're root and re-execute if we're not.
+rootcheck () {
+    if [ $(id -u) != "0" ]
+    then
+        echo "Please run it as root: sudo ./config.sh"
+        exit 1
+    fi
+}
+
+rootcheck
 if [ -d "built" ]; then
   echo "Warning: Cleaning built folder"
   rm -rf "built"

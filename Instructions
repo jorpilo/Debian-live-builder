@@ -1,0 +1,16 @@
+https://debian-live.alioth.debian.org/live-manual/stable/manual/html/live-manual.en.html
+
+apt-get install live-build live-boot live-config
+
+
+Añadir repos
+    config/archives/my_repo.list.chroot
+        deb http://..... sid main contrib non-free
+    config/archives/live.list.binary for source.list.d
+    add the GPG key to config/archives/repo.key.{binary, chroot}
+
+https://osluz.unizar.es/content/creacion-personalizada-de-una-distribucion-gnu-linux-basada-en-debian
+
+chroot
+sudo edit-chroot -b [-f folder] chroot_name
+sudo sh -e folder -f chroot_name.tar.gz
