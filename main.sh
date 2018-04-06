@@ -27,7 +27,7 @@ if [ ! -f "options.conf" ]; then
   echo "locales=es_ES.UTF-8" >> options.conf
   echo "keyboard-layouts=es" >> options.conf
   echo "username=live-user" >> options.conf
-  echo "live-config.login" >> options.con
+  echo "live-config.login" >> options.conf
   echo "live-config.user-default-groups=audio,cdrom,dip,floppy,video,plugdev,netdev,powerdev,scanner,bluetooth,fuse" >> options.conf
 
 fi
