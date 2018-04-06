@@ -35,11 +35,11 @@ case $result in
     if [ $(rootcheck) -eq 0 ]; then
       build.sh
     else
-      sudo ./Scripts/Main/build.sh
+      echo "" | sudo -S ./Scripts/Main/build.sh
       if [ $? -ne 0 ]; then
           password=$(dialog --title "Password" \
           --clear \
-          --passwordbox "Enter your password" 0 0 3>&1 1>&2 2>&3 3>$-)
+          --passwordbox "Enter your password (password not showing)" 0 0 3>&1 1>&2 2>&3 3>$-)
           echo $password | sudo -S ./Scripts/Main/build.sh|| dialog --title "Bad password" --msgbox "Wrong Password" 0 0
       fi
     fi
