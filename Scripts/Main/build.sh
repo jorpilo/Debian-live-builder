@@ -36,6 +36,8 @@ Desktop=""
 lb config --binary-images iso-hybrid\
 --mirror-bootstrap $Mirror --mirror-binary $Mirror\
 --debian-installer live \
+--arquitectures $Arquitecture\
+--distribution $Distro\
 --debootstrap-options "--include=apt-transport-https" \
 --bootappend-live 'boot=live components $Options'
 
