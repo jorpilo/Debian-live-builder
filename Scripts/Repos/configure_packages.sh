@@ -6,7 +6,6 @@
 # @Last modified time: 06-04-2018 13:54
 
 source config.conf
-echo "$Mirror"
 
 while true; do
 result=$(dialog  --clear --backtitle "Debian-live-builder" --title "Package configuration" \

@@ -40,7 +40,7 @@ case $result in
           password=$(dialog --title "Password" \
           --clear \
           --passwordbox "Enter your password (password not showing)" 0 0 3>&1 1>&2 2>&3 3>$-)
-          echo $password | sudo -S ./Scripts/Main/build.sh|| dialog --title "Bad password" --msgbox "Wrong Password" 0 0
+          echo $password | sudo -S ./Scripts/Main/build.sh|| dialog --title "Error" --msgbox "Error: $?" 0 0
       fi
     fi
         ;;

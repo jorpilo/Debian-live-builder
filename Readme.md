@@ -7,6 +7,9 @@
 - wget
 - dialog
 - sudo (if not run as root)
+*****
+- binutils
+- debootstrap
 
 Run main.sh
 

@@ -16,7 +16,7 @@ rootcheck () {
         fi
     }
 
-if [ $(rootchecks) -ne 0 ]; then
+if [ $(rootcheck) -ne 0 ]; then
     exit 1
 fi
 source config.conf
@@ -29,8 +29,7 @@ mkdir built
 cd built
 
 
-Options= $(echo config.conf)
-Mirror= $(echo main-repo.conf)
+Options= $(echo options.conf)
 
 Desktop=""
 lb config --binary-images iso-hybrid \
