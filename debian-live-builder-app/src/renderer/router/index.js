@@ -11,9 +11,19 @@ export default new Router({
       component: require('@/components/LandingPage').default
     },
     {
-      path: 'conf',
+      path: '/conf',
       name: 'configuration',
       component: require('@/components/Configuration').default
+    },
+    {
+      path: '/packages',
+      name: 'packages',
+      component: require('@/components/Packages').default
+    },
+    {
+      path: '/packages/:name',
+      name: ':name',
+      component: require('@/components/PackagesInfo').default
     }
   ]
 })

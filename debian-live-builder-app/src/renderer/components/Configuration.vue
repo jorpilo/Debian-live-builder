@@ -1,46 +1,59 @@
 <template>
     <div class="configuration">
-        <h1>Configuration</h1>
-        <form class="form">
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Mirror</label>
-                <input type="url" class="form-control" id="exampleFormControlInput1" v-model="mirror">
-
-            </div>
-
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
-                <select multiple class="form-control" id="exampleFormControlSelect2">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Example textarea</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <input type="submit" id="btnSave" class="btn btn-primary btn-md center-block" value="Guardar" @Click="save()" >
-                    <input type="button" id="btnCancel" class="btn btn-danger btn-md center-block"  value="Cancelar" @click="navHome()" >
-                </div>
-            </div>
-        </form>
-
-
+        <md-steppers>
+            <md-step id="first" md-label="Build configuration">
+                <md-card class="md-layout-item md-size-75 md-small-size-100 md-with-hover">
+                    <md-card-header>
+                        <div class="md-title">Build configuration:</div>
+                    </md-card-header>
+                    <md-card-content>
+                        <div>
+                            <p>
+                                Mirror:
+                            </p>
+                            <md-autocomplete v-model="mirror" :md-options="mirrors" required>
+                                <label>Mirror</label>
+                            </md-autocomplete>
+                        </div>
+                        <div>
+                            <p>
+                                Distro:
+                            </p>
+                            <md-radio v-model="distro" value="jessie">jessie</md-radio>
+                            <md-radio v-model="distro" value="stretch">stretch</md-radio>
+                            <md-radio v-model="distro" value="testing">testing</md-radio>
+                            <md-radio v-model="distro" value="sid">sid</md-radio>
+                        </div>
+                        <div>
+                            <p>
+                                Arquitecture:
+                            </p>
+                            <md-radio v-model="arquitecture" value="i386">i386</md-radio>
+                            <md-radio v-model="arquitecture" value="amd64">amd64</md-radio>
+                        </div>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button type="submit" class="md-primary">Save Configuration</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-step>
+            <md-step id="second" md-label="Imagen configuration">
+                <md-card class="md-layout-item md-size-75 md-small-size-100 md-with-hover">
+                    <md-card-header>
+                        <div class="md-title">Imagen configuration:</div>
+                    </md-card-header>
+                    <md-card-content>
+                        <md-field>
+                            <label>Imagen options</label>
+                            <md-textarea v-model="options" id="imagenOptions"></md-textarea>
+                        </md-field>
+                    </md-card-content>
+                    <md-card-actions>
+                        <md-button type="submit" class="md-primary">Save Configuration</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-step>
+        </md-steppers>
     </div>
 </template>
 
@@ -49,7 +62,19 @@
       name: 'Configuration',
       data () {
         return {
-          mirror: 'http://soflibre.unizar.es/debian/'
+          mirror: null,
+          distro: 'jessie',
+          arquitecture: 'i386',
+          mirrors: [
+            'https://softlibre.unizar.es/debian',
+            'ftp.es.debian.org/debian/',
+            'ftp.de.debian.org/debian/'
+          ],
+          options: 'locales=es_ES.UTF-8\n' +
+          'keyboard-layouts=es\n' +
+          'username=live-user\n' +
+          'live-config.login\n' +
+          'live-config.user-default-groups=audio,cdrom,dip,floppy,video,plugdev,netdev,powerdev,scanner,bluetooth,fuse'
         }
       },
       methods: {
@@ -62,20 +87,11 @@
 </script>
 
 <style scoped>
-    .btn {
-        width: 100px
+    .md-layout-item{
+        margin-left: auto;
+        margin-right: auto;
     }
-    .configuration {
-        margin: 25px auto auto;
-        text-align: center;
-        width: 70%
-    }
-    .form {
-        width: 100%;
-        display: inline-block;
-        text-align: left;
-    }
-    label {
-        color: white;
+    #imagenOptions {
+        height: 200px;
     }
 </style>

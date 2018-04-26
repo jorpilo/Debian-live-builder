@@ -3,8 +3,6 @@
     <img src="../assets/logo.png" width="130" height="180" class="logo">
     <div class="container btn-group-wrap menu">
         <button type="button" class="btn btn-primary btn-lg" @click="build()">Build</button>
-        <button type="button" class="btn btn-primary btn-lg" @click="navConf()">Configuration</button>
-        <button type="button" class="btn btn-primary btn-lg">Packages</button>
         <button type="button" class="btn btn-primary btn-lg" @click="clean()">Clean</button>
         <button type="button" class="btn btn-primary btn-lg" @click="exit()">Exit</button>
     </div>

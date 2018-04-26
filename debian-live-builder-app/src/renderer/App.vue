@@ -1,29 +1,44 @@
 <template>
-  <div id="app" class="app">
-    <router-view></router-view>
+  <div class="page-container">
+    <md-app md-waterfall md-mode="fixed-last">
+      <md-app-toolbar class="md-large md-dense md-primary">
+        <div class="md-toolbar-row">
+            <span class="md-title">Debian Live Builder</span>
+        </div>
+
+        <div class="md-toolbar-row">
+          <md-tabs class="md-primary">
+            <md-tab id="tab-home" md-label="Home" to="/"></md-tab>
+            <md-tab id="tab-posts" md-label="Configuration" to="/conf"></md-tab>
+            <md-tab id="tab-pages" md-label="Packages" to="/packages"></md-tab>
+
+          </md-tabs>
+        </div>
+      </md-app-toolbar>
+      <md-app-content>
+        <router-view></router-view>
+      </md-app-content>
+    </md-app>
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'debian-live-builder'
-  }
-</script>
+<style lang="scss">
+  @import url("http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons");
+  .md-app {
 
-<style>
-  /* CSS */
-  @import url('https://fonts.googleapis.com/css?family=Raleway:300,700|Passion+One');
-  body {
-    background-color: #394149;
+    border: 1px solid rgba(#000, .12);
   }
-  h1 {
-    background-color: darkgrey;
-    border-radius: 25px;
-    color: black;
-    font-family: 'Passion One', serif;
 
-  }
   body {
-    font-family: 'Raleway', 'Arial', serif;
+    background-color: var(--md-theme-default-background, #424242);
   }
 </style>
+
+<script>
+  export default {
+    name: 'LastRowFixed',
+    data: () => ({
+      menuVisible: false
+    })
+  }
+</script>
