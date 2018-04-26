@@ -21,7 +21,7 @@ if [ $? -ne 0 ]; then
   dialog --title "Error" --msgbox "No internet" 0 0
   exit 1
 fi
- wget -q -O /tmp/${repo[0]}.gz ${repo[1]}/dists/$Distro/non-free/binary-amd64/Packages.gz
+ wget -q -O /tmp/${repo[0]}.gz ${repo[1]}/dists/$Distro/main/binary-$Arquitecture/Packages.gz
  if [ $? -ne 0 ]; then
    dialog --title "Error" --msgbox "Couldn't download packages from ${repo[1]}" 0 0
    exit 1

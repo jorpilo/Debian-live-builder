@@ -35,6 +35,7 @@ Mirror= $(echo main-repo.conf)
 Desktop=""
 lb config --binary-images iso-hybrid \
 --mirror-bootstrap $Mirror --mirror-binary $Mirror \
+--archive-areas "$Archive" \
 --debian-installer live \
 --arquitectures $Arquitecture \
 --distribution $Distro \
