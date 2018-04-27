@@ -21,8 +21,8 @@ export default new Router({
       component: require('@/components/Packages').default
     },
     {
-      path: '/packages/:name',
-      name: ':name',
+      path: '/info/:name',
+      name: 'info',
       component: require('@/components/PackagesInfo').default
     }
   ]

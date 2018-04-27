@@ -6,7 +6,7 @@
             <span class="md-list-item-text"> {{ mirror.url }}</span>
             <span class="md-list-item-text"> {{ mirror.zones }}</span>
 
-            <md-button class="md-icon-button md-list-action">
+            <md-button class="md-icon-button md-list-action" @click="navPkgInfo(mirror.name)">
                 <md-icon class="md-primary">build</md-icon>
 
             </md-button>
@@ -40,6 +40,12 @@
             url: 'ftp.es.debian.org/debian/',
             zones: 'main'}
         ]
+      }
+    },
+    methods: {
+      navPkgInfo: function (mirror) {
+        console.log(mirror)
+        this.$router.push({name: 'info', params: { name: mirror }})
       }
     }
   }
